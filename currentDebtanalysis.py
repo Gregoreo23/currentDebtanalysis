@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from datetime import datetime 
 import sys
-
+from copy import deepcopy
 
 month_tracker={}
 length_month_tracker={}
@@ -37,7 +37,7 @@ for i in debt:
     all_debts.update(i)
 
 #sorting all_debt from least "amount_due" to greatest "amount_due"
-sorted_debt_by_amount_due=dict(sorted(all_debts.items(),key=lambda x: x[1]["amount_due_info"]["inital_amount_due"]))
+cuurent_debt_analysis_dic=deepcopy(dict(sorted(all_debts.items(),key=lambda x: x[1]["amount_due_info"]["inital_amount_due"])))
 
 
 def currentDebtanalysis(all_debts_dic):
@@ -172,10 +172,11 @@ def currentDebtanalysis(all_debts_dic):
     plt.legend(["total debt"])
     plt.show()
 
-currentDebtanalysis(sorted_debt_by_amount_due)
-  
+currentDebtanalysis(cuurent_debt_analysis_dic)
+
+
+
+
+
 
     
-    
-    
-
